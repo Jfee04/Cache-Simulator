@@ -1,0 +1,18 @@
+cache structure
+    contains x sets of n blocks
+        Block Index = floor(Memory_Address / Block_Size) mod Block_Count
+        each block has a 
+            tag   bits floor(Memory_Address / Cache_Size) 
+            valid bit
+    m words per block
+        Block Offset (which byte inside block) = Memory_Address mod Block_Size
+    total of n * m words
+
+
+
+on read 
+    find the cache block associated with that adress
+    check if valid
+    check if the tag is apropriate
+    if yes record hit
+    if no record miss and update block to be correct size
