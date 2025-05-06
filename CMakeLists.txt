@@ -7,4 +7,4 @@ project(cachesim)
 # Include the directory headers are located
 include_directories(${CMAKE_SOURCE_DIR}/include)
 # Add the main executable
-add_executable(cachesim src/main.cpp )
+add_executable(cachesim src/main.cpp src/cache.cpp src/set.cpp)

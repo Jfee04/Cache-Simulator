@@ -14,6 +14,6 @@ public:
 
     Set(size_t a){};
 
-    bool access(uint32_t tag, bool isWrite, WritePolicy wp, int blockSize, int& bytesFromMem, int& bytesToMem, bool& hit) {};
+    bool access(uint32_t tag, bool isWrite, WritePolicy wp, int blockSize, int& bytesFromMem, int& bytesToMem) {};
 
 };

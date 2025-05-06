@@ -5,7 +5,7 @@
 #include <vector>
 #include <fstream>
 
-enum PlacementType {W1, W2, W4, FA};
+enum PlacementType {DM, W2, W4, FA};
 
 class Cache {
 
