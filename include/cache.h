@@ -19,10 +19,10 @@ public:
     int hits = 0;
     int requests = 0;
 
-    Cache(int cacheSize, int blockSize, PlacementType pt, WritePolicy wp) : blockSize(blockSize), pt(pt), wp(wp) {};
+    Cache(int cacheSize, int blockSize, PlacementType pt, WritePolicy wp);
 
-    void access(uint32_t adress, bool isWrite){};
+    void access(uint32_t adress, bool isWrite);
 
-    void report(std::ofstream& fout, int cacheSize){};
+    void report(std::ofstream& fout, int cacheSize);
 
 };

@@ -5,13 +5,36 @@
 #include <fstream>
 #include <string>
 
+
+uint32_t hex_to_int(const std::string& hexStr) {
+    //std::cout <<"hex";
+    return static_cast<uint32_t>(std::stoul(hexStr, nullptr, 16));
+}
+
+std::vector<std::string> read_trace(const std::string& filename) {
+    //std::cout << "read_trace";
+    std::vector<std::string> trace;
+    std::ifstream file(filename);
+
+    if (!file.is_open()) {
+            std::cerr << "Error: Could not open input file." << std::endl;
+            std::exit(0);
+        }
+
+    std::string line;
+    while (getline(file, line))
+        if (!line.empty()) trace.push_back(line);
+    return trace;
+}
+
 int main() {
+   // std::cout << "main";
     std::vector<int> cacheSizes = {1024, 2048, 8192, 65536};
     std::vector<int> blockSizes = {4, 8, 32, 256};
     std::vector<PlacementType> placements = {DM, W2, W4, FA};
     std::vector<WritePolicy> writePolicies = {WB, WT};
 
-    std::vector<std::string> trace = read_trace("input.trace");
+    std::vector<std::string> trace = read_trace("associative.trace");
 
     std::ofstream fout("test.result");
 
@@ -39,15 +62,3 @@ int main() {
 
 
 
-uint32_t hex_to_int(const std::string& hexStr) {
-    return static_cast<uint32_t>(std::stoul(hexStr, nullptr, 16));
-}
-
-std::vector<std::string> read_trace(const std::string& filename) {
-    std::vector<std::string> trace;
-    std::ifstream file(filename);
-    std::string line;
-    while (getline(file, line))
-        if (!line.empty()) trace.push_back(line);
-    return trace;
-}
